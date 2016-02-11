@@ -15,7 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
+// init map renders the map on the page.
+
 function initMap() {
+
+  // init map part one calls up google maps api
   
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -26,6 +30,9 @@ function initMap() {
   });
   directionsDisplay.setMap(map);
 
+// init map part two: JSON styling information, outputted from this
+// url http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html
+// Dan will explain to Molly later on so she can change the styling
   
   var styles = [
   {
@@ -67,6 +74,7 @@ function initMap() {
   }
 ]
 
+// The info window drops "current location" marker 
 
   var infoWindow = new google.maps.InfoWindow({map: map});
   var curr = [];
@@ -78,6 +86,11 @@ function initMap() {
         lng: position.coords.longitude
       };
       curr = [pos.lat,pos.lng];
+
+      // curr becomes the default input of the persons current location
+      // meaning the user who is using the app and initiating the meetup in the app
+      // is shown as "your start"
+
       console.log(curr);
       infoWindow.setPosition(pos);
       infoWindow.setContent('Current Location');
@@ -89,12 +102,15 @@ function initMap() {
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
+    // it just puts default location in Australia
   }
   console.log(curr);
   map.setOptions({styles: styles});
   document.getElementById('submit').addEventListener('click', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   });
+
+  // Shows display route a to b
 }
 
 
@@ -106,6 +122,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
+// handleLocationError gives an error if location doesn't exist
+
 //
 //
 //Directions Calculation
@@ -115,6 +133,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
     origin: document.getElementById('start').value,
     destination: document.getElementById('end').value,
+
+    // callback for calculateAndDisplayRoute (shows a to b)
 
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode.TRANSIT
@@ -129,6 +149,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       // For each route, display summary information.
       var totalDist = 0;
       var totalTime = 0;
+
+      // displaying the directions on the left bar as well as in the map
 
         for (var i = 0; i < route.legs.length; i++) {
            var routeSegment = i + 1;
@@ -162,18 +184,4 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
-///
-//
-//
-//
-//
-//
-//
-//
-//Original Example From StackOverflow
-//
-//
-//
-//
-//
-//
+
