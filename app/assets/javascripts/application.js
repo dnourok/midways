@@ -170,9 +170,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             var distance = (50/100) * totalDist;
             var time = ((50/100) * totalTime/60).toFixed(2);
             var mid = Math.floor(route.overview_path.length / 2);
+
+            // the route in an object and overview_path is an array of cordinates
+            // of each turn in the route and var mid gives us the calculation of the
+            // midpoint by distance
             
             var myLatLng = {lat: route.overview_path[mid].lat(), lng: route.overview_path[mid].lng()};
-            console.log(myLatLng);
+            console.log(myLatLng); 
               var marker = new google.maps.Marker({
               position: myLatLng,
               map: map
