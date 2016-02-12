@@ -14,26 +14,25 @@
     <br>
     <input type="text" id="start" value="Current Location">
     <br>
-    <b>What are you craving?</b>
-    <br>
-    <input type="text" id="cuisine" value="Mexican">
-    <br>
     <b>Their Start:</b>
       <br>
       <input type="text" id="end" value="101 Cooper St, New York, NY">
     </select>
     <br>
+    <b>What are you craving?</b>
+    <br>
+    <input type="text" id="cuisine" value="Mexican">
+    <br>
+    <br>
       <input type="submit" id="submit" value="Submit">
     </div>
     <div id="directions-panel"></div>
+
     </div>
 <%= yield %>
 </body>
 <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=@gmap_api_key%>&signed_in=false&callback=initMap"
-        async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=@gmap_api_key%>&signed_in=false&callback=initMap"
-        async defer></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=@gplaces_api_key%>&libraries=places"></script>                
+        async defer></script>               
 </html>
