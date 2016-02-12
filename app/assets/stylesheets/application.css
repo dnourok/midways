@@ -18,38 +18,54 @@ html, body {
         border: solid;
         margin: 0;
         padding: 0;
-        font-family: Futura;
+/*        font-family: Futura;*/
       }
-    #map {
+/*.map{
+  border: 10px solid black;
+} */     
+
+/*p{
+  margin: 0;
+  margin-bottom: 0px;
+} */     
+/*    #map {
         height: 100%;
         float: right;
         width: 70%;
         height: 100%;
-      }
+      }*/
 #right-panel {
   line-height: 30px;
   padding-left: 10px;
 }
 
-#right-panel select, #right-panel input {
-  font-size: 15px;
+/*#right-panel select, */#right-panel input {
+/*  font-size: 15px;*/
 }
-
+/*
 #right-panel select {
   width: 100%;
-}
+}*/
 
 /*#right-panel i {
   font-size: 12px;
 }*/
 
       #right-panel {
+<<<<<<< HEAD
         /*margin: 20px;*/
+=======
+        margin: 10px;
+>>>>>>> 7ab8d2838b2703551fe43173722c8f4d9b90ec0f
         border-width: 2px;
         width: 20%;
         float: left;
         text-align: left;
+<<<<<<< HEAD
         /*padding-top: 20px;*/
+=======
+/*        padding-top: 20px;*/
+>>>>>>> 7ab8d2838b2703551fe43173722c8f4d9b90ec0f
       }
       /*#directions-panel {
         margin-top: 20px;

@@ -89,6 +89,7 @@ function clearInfos() {
 }
 //
 //
+
 function createMarker(latlng) {
     var marker = new google.maps.Marker({
         position: latlng,

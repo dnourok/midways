@@ -6,32 +6,38 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script> 
 </head>
 <body>
-<div id="right-panel">
+<div class="mdl-grid">
+<div id="right-panel" class="mdl-cell--4-col">
     <div>
-    <b>Your Start:</b>
-    <br>
+    <p>Your Start:</p>
     <input type="text" id="start" value="Current Location">
-    <br>
-    <b>Their Start:</b>
-      <br>
+    <p>Their Start:</p>
       <input type="text" id="end" value="101 Cooper St, New York, NY">
+<<<<<<< HEAD
     <br>
     <b>What are you craving?</b>
+=======
+>>>>>>> 7ab8d2838b2703551fe43173722c8f4d9b90ec0f
     <br>
+    <p>What are you craving?</p>
     <input type="text" id="cuisine" value="Mexican">
-    <br>
-    <br>
       <input type="submit" id="submit" value="Submit">
     </div>
     <div id="directions-panel"></div>
+</div>
 
-    </div>
+<div id="right-panel" class="mdl-cell--8-col">  
 <%= yield %>
+</div>
+</div>
 </body>
 <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=@gmap_api_key%>&signed_in=false&callback=initMap"
-        async defer></script>               
+        async defer></script>                      
 </html>
