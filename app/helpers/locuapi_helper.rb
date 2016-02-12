@@ -1,0 +1,2 @@
+module LocuapiHelper
+end
