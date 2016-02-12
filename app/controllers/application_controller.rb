@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  before_action do
+  	@gmap_api_key = ENV['GOOGLE_MAPS_API_KEY']
+  	@gplaces_api_key = ENV['GOOGLE_PLACES_API_KEY']
+  end	
   protect_from_forgery with: :exception
 end
