@@ -5,8 +5,22 @@
 <% @spots.each do |spot| %>
 
   <div class="spot">
-   <%= spot.name %>
+   <%= spot.name %> 
   </div>
+  <img src= "<%= spot.icon %>">
+  </img>
+
+<% end %>
+
+<h1> TESTING ITALIAN RESTURANT BELOW </h1>
+
+<% @italian.each do |italian| %>
+
+  <div>
+   <%= italian.name %> 
+  </div>
+  <img src= "<%= italian.icon %>">
+  </img>
 
 <% end %>
 

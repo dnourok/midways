@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index
     results = @@client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
     @spots = results.flatten
+    @italian = @@client.spots(-33.8670522, 151.1957362, :name => 'italian',  :types => 'restaurant')
      @user = User.all
   end
 
