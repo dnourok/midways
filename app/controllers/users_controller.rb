@@ -25,6 +25,9 @@ class UsersController < ApplicationController
     @barbecue = @@client.spots(-33.8670522, 151.1957362, :name => 'barbecue',  :types => 'restaurant')
     @steak = @@client.spots(-33.8670522, 151.1957362, :name => 'steak',  :types => 'restaurant')
 
+    # in order to get these to come up on the page you need to do a .each and then call by the variable.name
+    # need to change the longitude and latitude here in these so that we can make it changable with inputs
+    # we need to figure out if a budget is possible here
 
      @user = User.all
   end
