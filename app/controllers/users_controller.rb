@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 # uuse reference below to set up gem geocoder and gmaps4rails
 # https://github.com/JonKernPA/gmaps
+# More info about gmaps4rails 
+# http://apneadiving.github.io/
+# research more
+# https://developers.google.com/maps/documentation/geocoding/intro
+# passing info from front end to back end
+# https://teamtreehouse.com/community/pass-javascript-variable-to-rails-controller
   def index
     @users = User.find('3')
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
