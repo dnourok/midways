@@ -11,6 +11,21 @@ class UsersController < ApplicationController
     results = @@client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
     @spots = results.flatten
     @italian = @@client.spots(-33.8670522, 151.1957362, :name => 'italian',  :types => 'restaurant')
+    @french = @@client.spots(-33.8670522, 151.1957362, :name => 'french',  :types => 'restaurant')
+    @mexican = @@client.spots(-33.8670522, 151.1957362, :name => 'mexican',  :types => 'restaurant')
+    @indian = @@client.spots(-33.8670522, 151.1957362, :name => 'indian',  :types => 'restaurant')
+    @japanese = @@client.spots(-33.8670522, 151.1957362, :name => 'japanese',  :types => 'restaurant')
+    @pizza = @@client.spots(-33.8670522, 151.1957362, :name => 'pizza',  :types => 'restaurant')
+    @thai = @@client.spots(-33.8670522, 151.1957362, :name => 'thai',  :types => 'restaurant')
+    @american = @@client.spots(-33.8670522, 151.1957362, :name => 'american',  :types => 'restaurant')
+    @chinese = @@client.spots(-33.8670522, 151.1957362, :name => 'chinese',  :types => 'restaurant')
+    @hamburger = @@client.spots(-33.8670522, 151.1957362, :name => 'hamburger',  :types => 'restaurant')
+    @seafood = @@client.spots(-33.8670522, 151.1957362, :name => 'seafood',  :types => 'restaurant')
+    @sushi = @@client.spots(-33.8670522, 151.1957362, :name => 'sushi',  :types => 'restaurant')
+    @barbecue = @@client.spots(-33.8670522, 151.1957362, :name => 'barbecue',  :types => 'restaurant')
+    @steak = @@client.spots(-33.8670522, 151.1957362, :name => 'steak',  :types => 'restaurant')
+
+
      @user = User.all
   end
 

@@ -24,6 +24,31 @@
 
 <% end %>
 
+<h1> TESTING FRENCH RESTURANT BELOW </h1>
+
+<% @french.each do |french| %>
+
+  <div>
+   <%= french.name %> 
+  </div>
+  <img src= "<%= french.icon %>">
+  </img>
+
+<% end %>
+
+
+<h1> TESTING MEXICAN RESTURANT BELOW </h1>
+
+<% @mexican.each do |mexican| %>
+
+  <div>
+   <%= mexican.name %> 
+  </div>
+  <img src= "<%= mexican.icon %>">
+  </img>
+
+<% end %>
+
 <table>
   <thead>
     <tr>
