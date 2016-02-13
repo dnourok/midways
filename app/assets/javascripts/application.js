@@ -41,7 +41,9 @@ var styles = [
   }
 ]
 //
-ffunction initMap() {
+function initMap() {
+
+	// init map part one calls up google maps API
 
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -52,6 +54,9 @@ ffunction initMap() {
     disableDefaultUI: true
   });
   directionsDisplay.setMap(map);
+
+// the info window drops "current location" marker
+
   var infoWindow = new google.maps.InfoWindow({map: map});
   var curr = [];
   // Try HTML5 geolocation.
@@ -62,6 +67,9 @@ ffunction initMap() {
         lng: position.coords.longitude
       };
       curr = [pos.lat,pos.lng];
+
+      // curr becomes the default input of the persons current location (so the user)
+      // this means the person initiating the meetup in the app is shown as "your start"
       
       infoWindow.setPosition(pos);
       infoWindow.setContent('Current Location');
@@ -78,6 +86,8 @@ ffunction initMap() {
   document.getElementById('submit').addEventListener('click', function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   });
+
+  // shows route a to b
  
 }
 
@@ -89,11 +99,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
+
+// handleLocationError gives an error if the location doesnt exist
 //
+// directions calculation
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
     origin: document.getElementById('start').value,
     destination: document.getElementById('end').value,
+
+    // callback for calculateAndDisplayRoute (shows a to b)
 
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode.TRANSIT
@@ -108,6 +123,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       // For each route, display summary information.
       var totalDist = 0;
       var totalTime = 0;
+
+      // displaying the directions on the left bar as well as in the map
 
         for (var i = 0; i < route.legs.length; i++) {
            var routeSegment = i + 1;
@@ -127,6 +144,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             var distance = (50/100) * totalDist;
             var time = ((50/100) * totalTime/60).toFixed(2);
             var mid = Math.floor(route.overview_path.length / 2);
+
+            // the route in an object and overview_path is an array of cordinates
+           // of each turn in the route and var mid gives us the calculation of the
+           // midpoint by distance
+
             
             midLatLng = {lat: route.overview_path[mid].lat(), lng: route.overview_path[mid].lng()};
             console.log(midLatLng);
