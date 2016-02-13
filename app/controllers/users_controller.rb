@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  @client = GooglePlaces::Client.new(API_KEY)
+  # client is a method off of the google places gem
+  # were just creating a new client from the google places gem
+  # and using our API_key
 
   # GET /users
   # GET /users.json
   def index
+    @client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
     @users = User.all
   end
 
