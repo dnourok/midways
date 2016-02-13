@@ -1,4 +1,10 @@
 
 <% @result.each do |business| %>
-	<h1><%= business.name %></h1>
+	<div>
+		<h3><%= business.name %></h3>
+		<p><%= business.location.display_address[0] %></p>
+		<img src="<%= business.image_url %>" alt=""><br>
+		<img src="<%= business.rating_img_url %>" alt="">
+		<p>based on <%= business.review_count %> reviews</p>
+	</div>
 <% end %>
