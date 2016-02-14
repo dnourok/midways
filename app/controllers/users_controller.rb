@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     results = @@client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
     @spots = results.flatten
     @bars = @@client.spots(-33.8670522, 151.1957362, :types => 'bar', :exclude => ['resturant', 'lodging'])
+    # since things can be catagorized by two types some of the bars have food at them as well
     @italian = @@client.spots(-33.8670522, 151.1957362, :name => 'italian',  :types => 'restaurant')
     @french = @@client.spots(-33.8670522, 151.1957362, :name => 'french',  :types => 'restaurant')
     @mexican = @@client.spots(-33.8670522, 151.1957362, :name => 'mexican',  :types => 'restaurant')
