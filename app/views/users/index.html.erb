@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<h1>atm test</h1>
+
+<% @atm.each do |atm| %>
+
+  <div>
+   <%= atm.name %> 
+  </div>
+  <img src= "<%= atm.icon %>">
+  </img>
+
+<% end %>
+
 <h1>Testing bars</h1>
 
 <% @bars.each do |bar| %>

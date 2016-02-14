@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     @sushi = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'sushi',  :types => 'restaurant')
     @barbecue = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'barbecue',  :types => 'restaurant')
     @steak = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'steak',  :types => 'restaurant')
+    @atm = @@client.spots(-33.8670522, 151.1957362, :radius =>500, :types => 'atm')
 
     # in order to get these to come up on the page you need to do a .each and then call by the variable.name
     # need to change the longitude and latitude here in these so that we can make it changable with inputs
