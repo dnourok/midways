@@ -304,13 +304,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     destination: document.getElementById('end').value,
 
     // callback for calculateAndDisplayRoute (shows a to b)
-  	// provideRouteAlternatives: true,
+  	provideRouteAlternatives: true,
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode.TRANSIT
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       debugger
+      var r1d = response.routes[0].legs[0].distance.value;
       var route = response.routes[0];
       console.log("num of routes" + response.routes.length)
       // var path = response.routes[0].overview_path;
@@ -318,13 +319,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       // var summaryPanel = document.getElementById('directions-panel');
       // summaryPanel.innerHTML = '';
       // For each route, display summary information.
-      var totalDist = 0;
-      var totalTime = 0;
+      // var totalDist = 0;
+      // var totalTime = 0;
       console.log("route segments:" + route.overview_path.length)
       // displaying the directions on the left bar as well as in the map
 
-        for (var i = 0; i < route.legs.length; i++) {
-           var routeSegment = i + 1;
+        // for (var i = 0; i < route.legs.length; i++) {
+        //    var routeSegment = i + 1;
             // summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
             // summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
             // summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
@@ -334,12 +335,12 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
             // summaryPanel.innerHTML += 'duration text: ' + route.legs[i].duration.text + '<br><br>';
             // summaryPanel.innerHTML += 'duration value: ' + route.legs[i].duration.value + '<br><br>';
-
-            totalDist += route.legs[i].distance.value;
-            totalTime += route.legs[i].duration.value;
+            // console.log(i)
+            // totalDist += route.legs[i].distance.value;
+            // totalTime += route.legs[i].duration.value;
             
-            var distance = (50/100) * totalDist;
-            var time = ((50/100) * totalTime/60).toFixed(2);
+            // var distance = (50/100) * totalDist;
+            // var time = ((50/100) * totalTime/60).toFixed(2);
             var mid = Math.floor(route.overview_path.length / 2);
 
             // the route in an object and overview_path is an array of cordinates
@@ -348,13 +349,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
             
             midLatLng = {lat: route.overview_path[mid].lat(), lng: route.overview_path[mid].lng()};
-            console.log(totalDist)
-            console.log(midLatLng);
+            // console.log(totalDist)
+            // console.log(midLatLng);
             var infoWindowMid = new google.maps.InfoWindow({map: map});
             infoWindowMid.setPosition(midLatLng);
             infoWindowMid.setContent('Midway');
             // document.getElementById('midpoint').value = [midLatLng.lat,midLatLng.lng];
-          }
+          // }
     } else {
       window.alert('Directions request failed due to ' + status);
     }
