@@ -10,26 +10,30 @@ class UsersController < ApplicationController
   def index
     results = @@client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
     @spots = results.flatten
-    @bars = @@client.spots(-33.8670522, 151.1957362, :types => 'bar', :exclude => ['resturant', 'lodging'])
+    @bars = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :types => 'bar', :exclude => ['resturant', 'lodging'])
     # since things can be catagorized by two types some of the bars have food at them as well
-    @italian = @@client.spots(-33.8670522, 151.1957362, :name => 'italian',  :types => 'restaurant')
-    @french = @@client.spots(-33.8670522, 151.1957362, :name => 'french',  :types => 'restaurant')
-    @mexican = @@client.spots(-33.8670522, 151.1957362, :name => 'mexican',  :types => 'restaurant')
-    @indian = @@client.spots(-33.8670522, 151.1957362, :name => 'indian',  :types => 'restaurant')
-    @japanese = @@client.spots(-33.8670522, 151.1957362, :name => 'japanese',  :types => 'restaurant')
-    @pizza = @@client.spots(-33.8670522, 151.1957362, :name => 'pizza',  :types => 'restaurant')
-    @thai = @@client.spots(-33.8670522, 151.1957362, :name => 'thai',  :types => 'restaurant')
-    @american = @@client.spots(-33.8670522, 151.1957362, :name => 'american',  :types => 'restaurant')
-    @chinese = @@client.spots(-33.8670522, 151.1957362, :name => 'chinese',  :types => 'restaurant')
-    @hamburger = @@client.spots(-33.8670522, 151.1957362, :name => 'hamburger',  :types => 'restaurant')
-    @seafood = @@client.spots(-33.8670522, 151.1957362, :name => 'seafood',  :types => 'restaurant')
-    @sushi = @@client.spots(-33.8670522, 151.1957362, :name => 'sushi',  :types => 'restaurant')
-    @barbecue = @@client.spots(-33.8670522, 151.1957362, :name => 'barbecue',  :types => 'restaurant')
-    @steak = @@client.spots(-33.8670522, 151.1957362, :name => 'steak',  :types => 'restaurant')
+    @italian = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'italian',  :types => 'restaurant')
+    @french = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'french',  :types => 'restaurant')
+    @mexican = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'mexican',  :types => 'restaurant')
+    @indian = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'indian',  :types => 'restaurant')
+    @japanese = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'japanese',  :types => 'restaurant')
+    @pizza = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'pizza',  :types => 'restaurant')
+    @thai = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'thai',  :types => 'restaurant')
+    @american = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'american',  :types => 'restaurant')
+    @chinese = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'chinese',  :types => 'restaurant')
+    @hamburger = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'hamburger',  :types => 'restaurant')
+    @seafood = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'seafood',  :types => 'restaurant')
+    @sushi = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'sushi',  :types => 'restaurant')
+    @barbecue = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'barbecue',  :types => 'restaurant')
+    @steak = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'steak',  :types => 'restaurant')
 
     # in order to get these to come up on the page you need to do a .each and then call by the variable.name
     # need to change the longitude and latitude here in these so that we can make it changable with inputs
     # we need to figure out if a budget is possible here
+
+
+    # added a radius (in meters). So it will only give us within there. We might want to think about changing the number.
+    # Or discuss if we even want it. It means sometimes resturants don't pop up
 
      @user = User.all
   end
