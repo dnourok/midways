@@ -1,7 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>Testing bars</h1>
 
+<% @bars.each do |bar| %>
+
+  <div>
+   <%= bar.name %> 
+  </div>
+  <img src= "<%= bar.icon %>">
+  </img>
+
+<% end %>
+
+<h1>END TESTING BARS</h1>
 <% @spots.each do |spot| %>
 
   <div class="spot">
