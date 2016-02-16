@@ -8,8 +8,6 @@ class MidwaysEmail < ApplicationMailer
     @recipients_email = info["recipients_email"]
     @your_email = info["your_email"]
     mail(:to => @recipients_email, subject: "testing our emails", :cc => @your_email)
-    # mail(to: @recipients_email, subject: 'Your friend #{:your_name} has picked a midpoint to meet at!',
-    # 			cc: [@your_email])
   end
 end
 
