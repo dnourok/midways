@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     results = @@client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
-    @spots = results.flatten
     @bars = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :types => 'bar', :exclude => ['resturant', 'lodging'])
     # since things can be catagorized by two types some of the bars have food at them as well
     @italian = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'italian',  :types => 'restaurant')
@@ -27,6 +26,26 @@ class UsersController < ApplicationController
     @barbecue = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'barbecue',  :types => 'restaurant')
     @steak = @@client.spots(-33.8670522, 151.1957362, :radius => 100, :name => 'steak',  :types => 'restaurant')
     @atm = @@client.spots(-33.8670522, 151.1957362, :radius =>500, :types => 'atm')
+
+    @spots = results.flatten
+
+    @resturants = @@client.spots(astart, bstart, :name => @cuisine)
+
+astart: "0",
+    bstart: "0",
+    cuisine: "0",
+    meetTime: "0",
+    budget: "0",
+    destination: "0"
+};
+    # TESTING FROM THIS POINT
+
+    @cuisine = "italian"
+    @radius = "600"
+    @test = @@client.spots(-33.8670522, 151.1957362, :radius => @radius, :name => @cuisine,  :types => 'restaurant')
+
+    # TO THIS POINT
+
 
     # in order to get these to come up on the page you need to do a .each and then call by the variable.name
     # need to change the longitude and latitude here in these so that we can make it changable with inputs

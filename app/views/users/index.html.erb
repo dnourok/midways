@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<h1> TESTING START</h1>
+
+<% @test.each do |test| %>
+
+  <div>
+   <%= test.name %> 
+  </div>
+  <img src= "<%= test.icon %>">
+  </img>
+
+<% end %>
+
+  <h1> TESTING END</h1>
+
+
 <h1>atm test</h1>
 
 <% @atm.each do |atm| %>
