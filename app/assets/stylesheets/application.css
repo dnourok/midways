@@ -47,7 +47,7 @@ html, body {
   background: rgba(255,255,255,0.75);
   padding:15px;
   position: absolute;
-  height: 650px;
+  height: 80%;
   padding-top: 0px;
 }
 
@@ -70,7 +70,7 @@ img.card-img-top{
 }
 
 div.col-md-3.cardbox{
-  height: 650px;
+  height: 80%;
   overflow-y: scroll;
 }
 
