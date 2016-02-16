@@ -9,26 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="right-panel">
-    <div>
-    <b>Your Start:</b>
-    <br>
-    <input type="text" id="start" value="Current Location">
-    <br>
-    <b>Their Start:</b>
-      <br>
-      <input type="text" id="end" value="101 Cooper St, New York, NY">
-    </select>
-    <br>
-      <input type="submit" id="submit" value="Submit">
-    </div>
-    <!-- <div id="directions-panel"></div> -->
-</div>
+
 <%= yield %>
+
 </body>
 <script src="/javascripts/v3_epoly.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
-<script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8" async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=&signed_in=false&callback=initMap"
-        async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhkRkWThkV6APyvLBxY0IGawNC_N87VXI&signed_in=false&callback=initMap&libraries=geometry" async defer></script>
 </html>
+
