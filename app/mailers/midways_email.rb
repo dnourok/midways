@@ -4,9 +4,12 @@ class MidwaysEmail < ApplicationMailer
 # Below is the email they recieve when they get an email from a friend
 # with the midpoint location (resturant/bar) they are meeting
 
-	def decision_email(confirmationEmail)
-    @confirmation_email = confirmation_email
-    mail(to: @confirmation_email.recipients_email, subject: 'Your friend #{:your_name} has picked a midpoint to meet at!')
+	def confirmation_email(info)
+    @recipients_email = info["recipients_email"]
+    @your_email = info["your_email"]
+    mail(:to => @recipients_email, subject: "testing our emails", :cc => @your_email)
+    # mail(to: @recipients_email, subject: 'Your friend #{:your_name} has picked a midpoint to meet at!',
+    # 			cc: [@your_email])
   end
 end
 

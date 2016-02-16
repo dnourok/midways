@@ -6,7 +6,7 @@ class ConfirmationEmailsController < ApplicationController
 		end
 
      def new
-        @confirmation_email = ConfirmationEmail.new
+      @confirmation_email = ConfirmationEmail.new
     end
 
 		def show
@@ -18,7 +18,7 @@ class ConfirmationEmailsController < ApplicationController
 
   				respond_to do |format|
   					if @confirmation_email.save
-  							MidwaysEmail.decision_email(@confirmation_email).deliver
+  							MidwaysEmail.confirmation_email(@confirmation_email).deliver
 							format.html { redirect_to @confirmation_email, notice: 'User was successfully created.' }
       				format.json { render :show, status: :created, location: @confirmation_email }
     				else
