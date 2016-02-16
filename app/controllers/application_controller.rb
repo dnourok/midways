@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+	
 	# before_action do
  #      @gmap_api_key = ENV["GOOGLE_API_MAPS_KEY"]
  #  end 

@@ -286,29 +286,29 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       console.log("num of routes" + response.routes.length)
       var path = route.overview_path;
            
-			var half_length = 0;
-			var half_length_old = 0;
+    	var half_length = 0;
+    	var half_length_old = 0;
 
-			var mid;
-			// debugger
-			var notfound = true
-			var between;
-			// calculates the distance between each point in the path and produces the first point past the middle distance
-			for(i=1; half_length < r1hd; i++){
-				half_length_old = half_length;
-				var in_btw = google.maps.geometry.spherical.computeDistanceBetween(path[i],path[i-1]); 
-				half_length += in_btw;
-				if (half_length > r1hd){
-					mid = i;
-					between = in_btw;
-				};
-			};
-			// calculates the distance back from the end to the actual middle of route
-			var back_dist = half_length - r1hd;
-			// calculates the heading between the two points around the true middle of the route
-			var heading = google.maps.geometry.spherical.computeHeading(path[mid], path[mid-1])
-			// calculates the true middle of the route and produces a point
-			var newMid = google.maps.geometry.spherical.computeOffset(path[mid], back_dist, heading);
+    	var mid;
+    	// debugger
+    	var notfound = true
+    	var between;
+    	// calculates the distance between each point in the path and produces the first point past the middle distance
+    	for(i=1; half_length < r1hd; i++){
+    		half_length_old = half_length;
+    		var in_btw = google.maps.geometry.spherical.computeDistanceBetween(path[i],path[i-1]); 
+    		half_length += in_btw;
+    		if (half_length > r1hd){
+    			mid = i;
+    			between = in_btw;
+    		};
+    	};
+    	// calculates the distance back from the end to the actual middle of route
+    	var back_dist = half_length - r1hd;
+    	// calculates the heading between the two points around the true middle of the route
+    	var heading = google.maps.geometry.spherical.computeHeading(path[mid], path[mid-1])
+    	// calculates the true middle of the route and produces a point
+    	var newMid = google.maps.geometry.spherical.computeOffset(path[mid], back_dist, heading);
 			
       // midLatLng = {lat: route.overview_path[mid].lat(), lng: route.overview_path[mid].lng()};
       // midLatLng = {lat: newMid.lat(), lng: newMid.lng()};
@@ -328,10 +328,12 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     $.ajax({
         url : "/maps",
         type : "post",
-        data : { bStart: JSON.stringify(bStart), aStart: JSON.stringify(aStart), destination: JSON.stringify(destination) },
-        success: function() {
-		    	alert("response received");
-		    }
+        data : { bStart: JSON.stringify(bStart), aStart: JSON.stringify(aStart), destinationLat: JSON.stringify(destination.lat()), destinationLng: JSON.stringify(destination.lng()) },
+        success: function(response) {
+		    	// alert("response received");
+                console.log(response)
+                // debugger
+		      }
     });
 
 
