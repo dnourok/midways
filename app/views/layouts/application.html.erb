@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Midways</title>
+   <title>Midways</title>
+    <link rel="stylesheet" href="/stylesheets/application.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,4 +13,9 @@
 <%= yield %>
 
 </body>
+<script src="/javascripts/v3_epoly.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhkRkWThkV6APyvLBxY0IGawNC_N87VXI&signed_in=false&callback=initMap&libraries=geometry" async defer></script>
 </html>
+
