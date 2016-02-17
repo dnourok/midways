@@ -8,6 +8,11 @@ class MapsController < ApplicationController
 
 	def index
 		@maps_api_key = ENV["GOOGLE_API_MAPS_KEY"]
+    @clcktl_ui = ENV["CLICKATELL_UI"]
+    @clcktl_route_id = ENV["CLICKATELL_ROUTE_ID"]
+    @clcktl_addr = ENV["CLICKATELL_ADDR"]
+    @clcktl_from_no = ENV["CLICKATELL_FROM_NO"]
+    # binding.pry
     render :index
   end
 

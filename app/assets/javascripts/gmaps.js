@@ -191,7 +191,7 @@ console.log(curr)
 }
 
 function displayChoices(choices){
-    debugger
+ 
     choices.forEach(function(choice,i){
         if(i < 3){
           if(choice.photos.length > 0){
@@ -210,19 +210,26 @@ function displayChoices(choices){
           $('<h4>', {'class': 'card-title'}).text(choice.name).appendTo(cardB);
           var uList = $('<ul>', {'class': 'list-group list-group-flush'});
           var iList1 = $('<li>', {'class': 'list-group-item'});
-            iList1.text(choice.vicinity).appendTo(uList);
+            iList1.text(choice.vicinity);
             iList1.wrapInner( "<span class='glyphicon glyphicon-map-marker'></span>");
+            iList1.appendTo(uList);
           var iList2 = $('<li>', {'class': 'list-group-item'});
-            iList2.text(choice.rating).appendTo(uList);
+            iList2.text(choice.rating);
             iList2.wrapInner( "<span class='glyphicon glyphicon-star'></span>");
+            iList2.appendTo(uList);
           var iList3 = $('<li>', {'class': 'list-group-item'});
-            iList3.text(choice.price_level).appendTo(uList);
+            iList3.text(choice.price_level);
             iList3.wrapInner( "<span class='glyphicon glyphicon-usd'></span>");
+            iList3.appendTo(uList);
           
-          iList2.text(choice.rating).appendTo(uList);
-          iList3.text(choice.price_level).appendTo(uList);
           uList.appendTo(cardB);
-          $('<button>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button'}).text('Meet Here').appendTo(cardB);
+          
+          var buttonF = $('<form>',{'class': 'email', 'action': '/confirmation_emails/new', 'method': 'post'});
+            $('<input>', {'type': 'hidden', 'name': 'address', 'value': choice.vicinity}).appendTo(buttonF);
+            $('<input>', {'type': 'hidden', 'name': 'name', 'value': choice.name}).appendTo(buttonF);
+            $('<input>', {'type': 'text', 'name': 'phone'}).appendTo(buttonF);
+            $('<input>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button', 'value': 'Meet Here'}).appendTo(buttonF);
+          buttonF.appendTo(cardB);
 
           cardB.appendTo(card);
           card.appendTo('#cardTest')
@@ -230,7 +237,23 @@ function displayChoices(choices){
     });
 
 };
+// var ckui = document.getElementById('ckui').value;
+// var ckroute_id = document.getElementById('ckroute_id').value;
+// var ck_addr = document.getElementById('ck_addr').value;
+// var ck_from_no = document.getElementById('ck_from_no').value;
 
+document.getElementById("choice0").addEventListener('click', function(){
+        postText(0);
+    });
+$("#choice1").click(function(){
+        postText(1);
+    });
+$("#choice2").click(function(){
+        postText(2);
+    });
+function postText(i){
+  $.post("http://api.clickatell.com/http/sendmsg?user=leagueoffice&password=enpt2012&api_id=3379136&from=13479605369&MO=1&to=16313167321&text=Hey,%20come%20meet%20me%20at%20");
+}
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
