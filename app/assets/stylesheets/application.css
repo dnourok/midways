@@ -47,8 +47,9 @@ html, body {
   background: rgba(255,255,255,0.75);
   padding:15px;
   position: absolute;
-  height: 80%;
+  height: 650px;
   padding-top: 0px;
+  overflow-y: scroll;
 }
 
 header h1{
@@ -70,7 +71,6 @@ img.card-img-top{
 }
 
 div.col-md-3.cardbox{
-  height: 80%;
   overflow-y: scroll;
 }
 
