@@ -24,7 +24,7 @@ class MapsController < ApplicationController
       @results = @@client.spots(lat, lng, :radius => 400, :keyword => cuisine, :types => 'restaurant')
       puts 400
     end
-  	binding.pry
+  	# binding.pry
   	# @name = "peter"
   	# @spots = results.flatten
   	# put it in a variable

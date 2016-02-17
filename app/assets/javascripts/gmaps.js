@@ -282,12 +282,15 @@ function displayChoices(choices){
           $('<h4>', {'class': 'card-title'}).text(choice.name).appendTo(cardB);
           var uList = $('<ul>', {'class': 'list-group list-group-flush'});
           var iList1 = $('<li>', {'class': 'list-group-item'});
-              $('<span>', {'class': 'glyphicon glyphicon-map-marker'}).appendTo(iList1);
+            iList1.text(choice.vicinity).appendTo(uList);
+            iList1.wrapInner( "<span class='glyphicon glyphicon-map-marker'></span>");
           var iList2 = $('<li>', {'class': 'list-group-item'});
-              $('<span>', {'class': 'glyphicon glyphicon-star'}).appendTo(iList2);
+            iList2.text(choice.rating).appendTo(uList);
+            iList2.wrapInner( "<span class='glyphicon glyphicon-star'></span>");
           var iList3 = $('<li>', {'class': 'list-group-item'});
-              $('<span>', {'class': 'glyphicon glyphicon-usd'}).appendTo(iList3);
-          iList1.text(choice.vicinity).appendTo(uList);
+            iList3.text(choice.price_level).appendTo(uList);
+            iList3.wrapInner( "<span class='glyphicon glyphicon-usd'></span>");
+          
           iList2.text(choice.rating).appendTo(uList);
           iList3.text(choice.price_level).appendTo(uList);
           uList.appendTo(cardB);
