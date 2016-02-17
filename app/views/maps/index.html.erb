@@ -1,18 +1,58 @@
-<div id="right-panel">
-    <div>
-    <b>Your Start:</b>
-    <br>
-    <input type="text" id="start" value="Current Location">
-    <br>
-    <b>Their Start:</b>
-      <br>
-      <input type="text" id="end" value="101 Cooper St, New York, NY">
-    </select>
-    <br>
-      <input type="submit" id="submit" value="Submit">
-    </div>
-    <div id="img-panel">
-    </div>
-</div>
 
-<div id="map"></div>
+<div class="container">
+    <div class="col-md-3">
+    <header><h1>Midways</h1></header>
+      <form class="form-horizontal" action="#">
+
+        <label for="astart" class="mdl-textfield__label">Your location</label>      
+        <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="start" placeholder="Your Address" value=''>
+            </div>
+        </div>
+
+        <label for="bstart" class="mdl-textfield__label">Friend's location</label>
+        <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="end" placeholder="Friend's Address" value=''>
+            </div>
+        </div>
+
+        <label for="meetTime" class="mdl-textfield__label">Meet by</label>
+        <div class="form-group">
+            <div class="col-sm-12">
+              <input type="time" class="form-control" id="meetTime" placeholder="Time of meet up">
+            </div>
+        </div>
+
+        <label class="mdl-textfield__label" for="cuisine">What would you like to eat?</label>
+          <select class="form-control" id="cuisine">
+            <option value="barbecue">Barbecue</option>
+            <option value="french">French</option>
+            <option value="indian">Indian</option>
+            <option value="japanese">Japanese</option>
+            <option value="pizza">Pizza</option>
+            <option value="steak">Steak</option>
+            <option value="thai">Thai</option>
+            <option value="american">American</option>
+            <option value="chinese">Chinese</option>
+            <option value="hamburger">Hamburger</option>
+            <option value="italian">Italian</option>
+            <option value="mexican">Mexican</option>
+            <option value="seafood">Seafood</option>
+          </select>
+
+      <div class="form-group">
+        <div class="col-sm-offset-8 col-sm-4">
+          <button type="submit" id="submit" value="Submit" class="btn btn-default plan-it">Plan It</button>
+        </div>
+      </div>
+
+       </form>
+       <div id="cardTest"></div> 
+      </div>
+
+    <div class="map">  
+      <div id="map"></div>
+    </div>  
+   </div>

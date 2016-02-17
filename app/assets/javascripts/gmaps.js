@@ -286,7 +286,7 @@ function displayChoices(choices){
         $('<button>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button'}).text('Meet Here').appendTo(cardB);
 
         cardB.appendTo(card);
-        card.appendTo('#img-panel')
+        card.appendTo('#cardTest')
     });
 
 };
