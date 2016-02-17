@@ -197,7 +197,7 @@ var styles = [
 
 	var aStart;
 	var bStart;
-	var cuisine = 'italian';
+	var cuisine;
 	var meetTime = 7;
 	var budget;
 	var destination;
@@ -254,6 +254,8 @@ console.log(curr)
   document.getElementById('submit').addEventListener('click', function() {
   	aStart = document.getElementById('start').value;
   	bStart = document.getElementById('end').value;
+    cuisine = document.getElementById('cuisine').value; 
+    console.log(cuisine);   
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   });
  
