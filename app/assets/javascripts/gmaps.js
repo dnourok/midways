@@ -197,10 +197,11 @@ var styles = [
 
 	var aStart;
 	var bStart;
-	var cuisine;
-	var meetTime;
+	var cuisine = 'italian';
+	var meetTime = 7;
 	var budget;
 	var destination;
+    var responses;
 
 var places_data = [];
 
@@ -257,6 +258,17 @@ console.log(curr)
   });
  
 }
+
+function displayChoices(choices){
+    debugger
+    var reference = choices[0].photos[0].photo_reference;
+    var apiKey = choices[0].photos[0].api_key;
+    var choiceImgUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + reference + "&key=" + apiKey;
+    var newImg = $('<img>');
+    newImg.attr("src", choiceImgUrl);
+    newImg.appendTo('#img-panel');
+
+};
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -328,11 +340,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     $.ajax({
         url : "/maps",
         type : "post",
-        data : { bStart: JSON.stringify(bStart), aStart: JSON.stringify(aStart), destinationLat: JSON.stringify(destination.lat()), destinationLng: JSON.stringify(destination.lng()) },
+        data : { cuisine: JSON.stringify(cuisine), meetTime: JSON.stringify(meetTime), destinationLat: JSON.stringify(destination.lat()), destinationLng: JSON.stringify(destination.lng()) },
         success: function(response) {
 		    	// alert("response received");
+                responses = response
                 console.log(response)
                 // debugger
+                displayChoices(responses)
 		      }
     });
 
@@ -340,5 +354,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
-
+console.log(responses);
 console.log(midLatLng);

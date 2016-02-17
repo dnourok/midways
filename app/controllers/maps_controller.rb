@@ -14,11 +14,11 @@ class MapsController < ApplicationController
   def create
   	lat = params["destinationLat"].to_f
   	lng = params["destinationLng"].to_f
-  	@aStart = params["aStart"]
-  	@bStart = params["bStart"]
+  	meetTime = params["meetTime"].to_i
+  	cuisine = params["cuisine"].delete! '\"'
   	# binding.pry
   	# get info from google places
-  	@results = @@client.spots(lat, lng, :radius => 200, :keyword => 'italian', :types => 'restaurant')
+  	@results = @@client.spots(lat, lng, :radius => 200, :keyword => cuisine, :types => 'restaurant')
   	# binding.pry
   	# @name = "peter"
   	# @spots = results.flatten
