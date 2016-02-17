@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  @client = GooglePlaces::Client.new(API_KEY)
+  @client = GooglePlaces::Client.new(GOOGLE_PLACES_API_KEY)
   # client is a method off of the google places gem
   # were just creating a new client from the google places gem
   # and using our API_key
