@@ -1,10 +1,10 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for(@confirmation_email) do |f| %>
+  <% if @confirmation_email.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@confirmation_email.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% @confirmation_email.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -20,8 +20,12 @@
     <%= f.text_field :your_email %>
   </div>
   <div class="field">
-    <%= f.label :recipient_name %><br>
-    <%= f.text_field :recipient_name %>
+    <%= f.label :recipients_name %><br>
+    <%= f.text_field :recipients_name %>
+  </div>
+  <div class="field">
+    <%= f.label :recipients_email %><br>
+    <%= f.text_field :recipients_email %>
   </div>
   <!-- need to add link here that sutopopulates -->
   <div class="actions">
