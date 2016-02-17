@@ -222,10 +222,13 @@ function displayChoices(choices){
           iList2.text(choice.rating).appendTo(uList);
           iList3.text(choice.price_level).appendTo(uList);
           uList.appendTo(cardB);
-          $('<button>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button'}).text('Meet Here').appendTo(cardB);
-
+          var buttonF = $('<form>',{'class': 'email', 'action': '/confirmation_emails/new', 'method': 'get'});
+            $('<input>', {'type': 'hidden', 'name': 'address', 'value': choice.vicinity}).appendTo(buttonF);
+            $('<input>', {'type': 'hidden', 'name': 'name', 'value': choice.name}).appendTo(buttonF);
+            $('<input>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button', 'value': 'Meet Here', 'onclick': "window.location='/confirmation_emails/new' "}).appendTo(buttonF);
+          buttonF.appendTo(cardB);
           cardB.appendTo(card);
-          card.appendTo('#cardTest')
+          card.appendTo('#cardTest');
         }
     });
 
