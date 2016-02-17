@@ -1,6 +1,6 @@
 
 require 'json'
-require 'pry'
+# require 'pry'
 # require 'httparty'
 
 class WelcomeController < ApplicationController
