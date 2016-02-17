@@ -255,7 +255,8 @@ console.log(curr)
   	aStart = document.getElementById('start').value;
   	bStart = document.getElementById('end').value;
     cuisine = document.getElementById('cuisine').value; 
-    console.log(cuisine);   
+    console.log(cuisine);
+    $('#preferences').hide()   
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   });
  
@@ -264,31 +265,37 @@ console.log(curr)
 function displayChoices(choices){
     debugger
     choices.forEach(function(choice,i){
-        var reference = choice.photos[0].photo_reference;
-        var apiKey = choice.photos[0].api_key;
-        var choiceImgUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + reference + "&key=" + apiKey;
-        var card = $('<div>', {'class': 'card'});
-        var cardB = $('<div>', {'class': 'card-block'});
-        var cardW = $('<div>', {'class': 'card-wrapper'});
+        if(i < 3){
+          if(choice.photos.length > 0){
+              var reference = choice.photos[0].photo_reference;
+              var apiKey = choice.photos[0].api_key;
+              var choiceImgUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + reference + "&key=" + apiKey;
+          }else{
+              var choiceImgUrl = "https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=cf15c9c7e1a74cdb8dc1a53d3cc09ec6";
+          }
+          var card = $('<div>', {'class': 'card'});
+          var cardB = $('<div>', {'class': 'card-block'});
+          var cardW = $('<div>', {'class': 'card-wrapper'});
 
-        $('<img>', {'class': 'card-img-top'}).attr("src", choiceImgUrl).appendTo(cardW);
-        cardW.appendTo(cardB);
-        $('<h4>', {'class': 'card-title'}).text(choice.name).appendTo(cardB);
-        var uList = $('<ul>', {'class': 'list-group list-group-flush'});
-        var iList1 = $('<li>', {'class': 'list-group-item'});
-            $('<span>', {'class': 'glyphicon glyphicon-map-marker'}).appendTo(iList1);
-        var iList2 = $('<li>', {'class': 'list-group-item'});
-            $('<span>', {'class': 'glyphicon glyphicon-star'}).appendTo(iList2);
-        var iList3 = $('<li>', {'class': 'list-group-item'});
-            $('<span>', {'class': 'glyphicon glyphicon-usd'}).appendTo(iList3);
-        iList1.text(choice.vicinity).appendTo(uList);
-        iList2.text(choice.rating).appendTo(uList);
-        iList3.text(choice.price_level).appendTo(uList);
-        uList.appendTo(cardB);
-        $('<button>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button'}).text('Meet Here').appendTo(cardB);
+          $('<img>', {'class': 'card-img-top'}).attr("src", choiceImgUrl).appendTo(cardW);
+          cardW.appendTo(cardB);
+          $('<h4>', {'class': 'card-title'}).text(choice.name).appendTo(cardB);
+          var uList = $('<ul>', {'class': 'list-group list-group-flush'});
+          var iList1 = $('<li>', {'class': 'list-group-item'});
+              $('<span>', {'class': 'glyphicon glyphicon-map-marker'}).appendTo(iList1);
+          var iList2 = $('<li>', {'class': 'list-group-item'});
+              $('<span>', {'class': 'glyphicon glyphicon-star'}).appendTo(iList2);
+          var iList3 = $('<li>', {'class': 'list-group-item'});
+              $('<span>', {'class': 'glyphicon glyphicon-usd'}).appendTo(iList3);
+          iList1.text(choice.vicinity).appendTo(uList);
+          iList2.text(choice.rating).appendTo(uList);
+          iList3.text(choice.price_level).appendTo(uList);
+          uList.appendTo(cardB);
+          $('<button>', {'class': 'btn btn-primary btn-sm', 'id': 'choice' + i, 'type': 'button'}).text('Meet Here').appendTo(cardB);
 
-        cardB.appendTo(card);
-        card.appendTo('#cardTest')
+          cardB.appendTo(card);
+          card.appendTo('#cardTest')
+        }
     });
 
 };

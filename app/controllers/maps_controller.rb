@@ -19,7 +19,12 @@ class MapsController < ApplicationController
   	# binding.pry
   	# get info from google places
   	@results = @@client.spots(lat, lng, :radius => 200, :keyword => cuisine, :types => 'restaurant')
-  	# binding.pry
+    # binding.pry
+    if @results.length < 3 
+      @results = @@client.spots(lat, lng, :radius => 400, :keyword => cuisine, :types => 'restaurant')
+      puts 400
+    end
+  	binding.pry
   	# @name = "peter"
   	# @spots = results.flatten
   	# put it in a variable
