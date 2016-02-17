@@ -252,7 +252,7 @@ $("#choice2").click(function(){
         postText(2);
     });
 function postText(i){
-  $.post("http://api.clickatell.com/http/sendmsg?user=leagueoffice&password=enpt2012&api_id=3379136&from=13479605369&MO=1&to=16313167321&text=Hey,%20come%20meet%20me%20at%20");
+  $.post("");
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
